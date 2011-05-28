@@ -20,6 +20,7 @@
 	    (windmove-right)(error))
 	(condition-case err 
 	    (loop (windmove-up))(error))
-	(switch-to-buffer filebuffer)))))
+	(condition-case err 
+	    (switch-to-buffer-here filebuffer)(error (switch-to-buffer filebuffer)))))))
 
 (provide 'nav-open-fix)
