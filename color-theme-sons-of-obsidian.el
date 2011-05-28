@@ -26,6 +26,7 @@
      (font-lock-type-face ((t (:foreground"#729aca"))))
      (font-lock-reference-face ((t (:foreground "8b98ab"))))
      (font-lock-variable-name-face ((t (:foreground "#eeeeec"))))
+     (show-paren-match ((t (:background "#555753"))))
      (minibuffer-prompt ((t (:foreground "#a5c8ee" :bold t))))
      (font-lock-warning-face ((t (:foreground "Red" :bold t))))
      )))
