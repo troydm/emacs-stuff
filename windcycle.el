@@ -52,5 +52,9 @@
 (global-set-key (kbd "C-x <down>") 'windmove-down-cycle)
 (global-set-key (kbd "C-x <right>") 'windmove-right-cycle)
 (global-set-key (kbd "C-x <left>") 'windmove-left-cycle)
+(global-set-key (kbd "M-<up>") 'windmove-up-cycle)
+(global-set-key (kbd "M-<down>") 'windmove-down-cycle)
+(global-set-key (kbd "M-<right>") 'windmove-right-cycle)
+(global-set-key (kbd "M-<left>") 'windmove-left-cycle)
 
 (provide 'windcycle)
