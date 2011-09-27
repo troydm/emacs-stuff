@@ -18,7 +18,9 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;;; Simple Window cycling for Emacs using C-x direction arrows
+;;; Simple Window cycling for Emacs using C-x arrows or Meta arrows
+;;; You can also swap buffers between windows using Meta-Shift arrow 
+;;; And resize windows using Control-Shift arrows 
 ;;; To use add 
 ;;; (require 'windcycle) 
 ;;; to your .emacs
@@ -123,5 +125,11 @@
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;; iTerm meta-shift-<arrows> fix
+(define-key input-decode-map "\e[1;10A" [M-S-up])
+(define-key input-decode-map "\e[1;10B" [M-S-down])
+(define-key input-decode-map "\e[1;10C" [M-S-right])
+(define-key input-decode-map "\e[1;10D" [M-S-left])
 
 (provide 'windcycle)
