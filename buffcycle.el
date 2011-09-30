@@ -27,14 +27,20 @@
 ;; Buffer Cycling
 (defun next-buffer-cycle()
   (interactive)
-  (setq cur-buffer (buffer-name))
-  (next-buffer)
-  (while (and (booleanp (buffer-file-name)) (not (string= (buffer-name) cur-buffer)))
-     (next-buffer)))
+  (let ((cur-buffer (buffer-name)))
+    (progn (next-buffer)
+	   (while (and (booleanp (buffer-file-name)) (not (string= (buffer-name) cur-buffer)))
+	     (next-buffer)))))
+
+(defun kill-this-buffer-if-not-scratch()
+  (interactive)
+  (if (not (string= (buffer-name) "*scratch*"))
+      (kill-this-buffer)
+    (message "this is scratch unkillable")))
 
 ;; Buffer Cycling keybindings
 (global-set-key (kbd "<C-tab>") 'next-buffer-cycle)
-(global-set-key (kbd "C-q") 'kill-this-buffer)
+(global-set-key (kbd "C-q") 'kill-this-buffer-if-not-scratch)
 
 (provide 'buffcycle)
 
