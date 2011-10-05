@@ -103,6 +103,11 @@
 	     (progn (set-window-buffer swaped-window current-buffer)
 		    (set-window-buffer current-window swaped-buffer))))))
 
+;; Window Dedicated Toggle Function
+(defun toggle-dedicated-window ()
+  (interactive)
+  (set-window-dedicated-p (selected-window) 
+			  (not (window-dedicated-p (selected-window)))))
 
 ;; Switch window keybindings
 (global-set-key (kbd "C-x <up>") 'windmove-up-cycle)
