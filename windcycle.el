@@ -106,8 +106,9 @@
 ;; Window Dedicated Toggle Function
 (defun toggle-dedicated-window ()
   (interactive)
-  (set-window-dedicated-p (selected-window) 
-			  (not (window-dedicated-p (selected-window)))))
+  (let ((d (window-dedicated-p (selected-window))))
+    (progn (set-window-dedicated-p (selected-window) (not d))
+	   (if d (message "Window is not dedicated") (message "Window is now dedicated")))))
 
 ;; Switch window keybindings
 (global-set-key (kbd "C-x <up>") 'windmove-up-cycle)
