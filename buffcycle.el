@@ -34,9 +34,11 @@
 
 (defun kill-this-buffer-if-not-scratch()
   (interactive)
+  (if (window-dedicated-p (selected-window))
+      (message "this is dedicated window")
   (if (not (string= (buffer-name) "*scratch*"))
       (kill-this-buffer)
-    (message "this is scratch unkillable")))
+    (message "this is scratch unkillable"))))
 
 ;; Buffer Cycling keybindings
 (global-set-key (kbd "<C-tab>") 'next-buffer-cycle)
