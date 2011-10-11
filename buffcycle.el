@@ -25,12 +25,23 @@
 ;;; to your .emacs
 
 ;; Buffer Cycling
+(defvar *buffcycle-ibuffer-time* 0.5)
+(defvar *buffcycle-last-time* (float-time))
+
 (defun next-buffer-cycle()
   (interactive)
-  (let ((cur-buffer (buffer-name)))
-    (progn (next-buffer)
+  (let ((cur-buffer (buffer-name))
+	(time-diff 0.0))
+    (progn (setq time-diff (- (float-time) *buffcycle-last-time*))
+	   (if (>= *buffcycle-ibuffer-time* time-diff)
+	       (progn (setq *buffcycle-last-time* (float-time))
+		      (ibuffer)))
+	   (next-buffer)
 	   (while (and (booleanp (buffer-file-name)) (not (string= (buffer-name) cur-buffer)))
-	     (next-buffer)))))
+	     (next-buffer))
+	   (setq *buffcycle-last-time* (float-time)) 
+	   (if (string= cur-buffer (buffer-name))
+	       (ibuffer)))))
 
 (defun kill-this-buffer-if-not-scratch()
   (interactive)
