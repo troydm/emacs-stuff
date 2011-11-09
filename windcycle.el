@@ -132,6 +132,10 @@
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
 
+;; Window Split keybindings
+(global-set-key (kbd "C-x -") 'split-window-vertically)
+(global-set-key (kbd "C-x |") 'split-window-horizontally)
+
 ;; iTerm meta-shift-<arrows> fix
 (define-key input-decode-map "\e[1;10A" [M-S-up])
 (define-key input-decode-map "\e[1;10B" [M-S-down])
