@@ -136,6 +136,9 @@
 (global-set-key (kbd "C-x -") 'split-window-vertically)
 (global-set-key (kbd "C-x |") 'split-window-horizontally)
 
+;; Window Close keybindings
+(global-set-key (kbd "C-x x") 'delete-window)
+
 ;; iTerm meta-shift-<arrows> fix
 (define-key input-decode-map "\e[1;10A" [M-S-up])
 (define-key input-decode-map "\e[1;10B" [M-S-down])
