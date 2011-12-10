@@ -30,4 +30,10 @@
      (minibuffer-prompt ((t (:foreground "#a5c8ee" :bold t))))
      (font-lock-warning-face ((t (:foreground "Red" :bold t))))
      )))
+
+(add-to-list 'color-themes
+             `(color-theme-sons-of-obsidian
+               "Sons of Obsidian",
+	       "Dmitry Geurkov <dmitry_627@mail.ru>"))
+
 (provide 'color-theme-sons-of-obsidian)
